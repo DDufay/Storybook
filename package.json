@@ -1,24 +1,36 @@
 {
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-knobs": "^5.0.11",
     "@storybook/addon-storyshots": "^5.0.11",
     "@storybook/react": "^5.0.11",
     "babel-loader": "^8.0.6",
-    "jest": "^24.8.0"
+    "jest": "^24.8.0",
+    "react-hot-loader": "^4.8.8"
   },
   "dependencies": {
     "@storybook/addon-links": "^5.0.11",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "copy-webpack-plugin": "^5.0.3",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "sass-loader": "^7.1.0",
+    "sound-spectrum": "https://github.com/DDufay/sound-spectrum.git",
     "webpack": "^4.13.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "jest"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
   }
 }

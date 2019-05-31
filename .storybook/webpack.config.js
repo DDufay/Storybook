@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 // Export a function. Accept the base config as the only param.
 module.exports = async ({config, mode}) => {
@@ -14,6 +15,26 @@ module.exports = async ({config, mode}) => {
         loaders: ['style-loader', 'css-loader', 'sass-loader'],
         include: path.resolve(__dirname, '../'),
     });
+
+
+    config.module.rules.push({
+        test: /.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+            presets: ['es2015', 'react']
+        }
+    });
+
+
+    config.resolve = {
+        extensions: ['*', '.js', '.jsx']
+    };
+
+    config.plugins = [
+        new webpack.HotModuleReplacementPlugin()
+    ];
+
 
     // Return the altered config
     return config;
